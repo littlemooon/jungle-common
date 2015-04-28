@@ -30,6 +30,6 @@ describe('throwError function', () => {
 		() => throwError('').should.throw('');
 	});
 	it('should throw an error with the arg', () => {
-		() => throwError(123).should.throw('123');
+		() => throwError(123).should.throw(new Error('123'));
 	});
 });
