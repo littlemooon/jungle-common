@@ -1,6 +1,6 @@
 'use strict';
 
-import {mapObj} from '../src/general';
+import {mapObj} from './general';
 
 export default {
 	reducePaths: function(paths, tree, desc, getFn) {

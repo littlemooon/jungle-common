@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
-var _mapObj = require('../src/general');
+var _mapObj = require('./general');
 
 'use strict';
 
