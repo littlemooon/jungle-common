@@ -1,12 +1,12 @@
 {
   "name": "the-jungle-common",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Shared helpers for The Jungle",
-  "main": "index.js",
+  "main": "the-jungle-common.js",
   "scripts": {
     "start": "webpack --progress --colors --watch",
     "test": "./node_modules/karma/bin/karma start",
-    "publish": "npm start | npm publish ./"
+    "pub": "npm start | npm publish ./"
   },
   "devDependencies": {
     "babel-core": "^5.1.10",

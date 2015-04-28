@@ -53,26 +53,27 @@
 
 	'use strict';
 
-	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-
-	var _defaults = function (obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; };
-
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+		value: true
 	});
+
+	var _mapObj$callIfFunction$throwError = __webpack_require__(2);
+
+	var _reducePaths$navigatePath = __webpack_require__(3);
+
+	var _getCursorFns = __webpack_require__(4);
+
 	'use strict';
 
-	var _srcGeneral = __webpack_require__(2);
-
-	_defaults(exports, _interopRequireWildcard(_srcGeneral));
-
-	var _srcPaths = __webpack_require__(3);
-
-	_defaults(exports, _interopRequireWildcard(_srcPaths));
-
-	var _srcCursors = __webpack_require__(4);
-
-	_defaults(exports, _interopRequireWildcard(_srcCursors));
+	exports['default'] = {
+		mapObj: _mapObj$callIfFunction$throwError.mapObj,
+		callIfFunction: _mapObj$callIfFunction$throwError.callIfFunction,
+		throwError: _mapObj$callIfFunction$throwError.throwError,
+		reducePaths: _reducePaths$navigatePath.reducePaths,
+		navigatePath: _reducePaths$navigatePath.navigatePath,
+		getCursorFns: _getCursorFns.getCursorFns
+	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 2 */
