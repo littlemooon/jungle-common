@@ -4,37 +4,36 @@ Object.defineProperty(exports, '__esModule', {
 	value: true
 });
 
-var _mapObj = require('./general');
+var _mapObj$throwError = require('./general');
 
 'use strict';
 
 exports['default'] = {
-	reducePaths: function reducePaths(paths, tree, desc, getFn) {
+	reducePaths: function reducePaths(paths, tree, getFn, errorType) {
 		var _this = this;
 
 		// dont get rekt
 		if (!paths) {
 			return {};
-		}if (!tree) throw new Error('No ' + desc + 's have been passed to your root component');
-
-		// return a map of each path through the tree
-		return _mapObj.mapObj(paths, function (val) {
-			return _this.navigatePath(val, tree, desc, getFn);
+		} // return a map of each path through the tree
+		return _mapObj$throwError.mapObj(paths, function (val) {
+			return _this.navigatePath(val, tree, getFn, errorType);
 		});
 	},
 
-	navigatePath: function navigatePath(path, tree, desc, getFn) {
+	navigatePath: function navigatePath(path, tree, getFn, errorType) {
 		return pathAsArray(path).reduce(function (obj, key) {
 			// if we have been given a getter then use it, otherwise treat as an object
 			var value = obj && (getFn ? getFn(obj, key) : obj[key]);
 
-			// return null if not found
+			// throw error or return null if not found
+			if (errorType) _mapObj$throwError.throwError('Cannot find ' + errorType + ': \'' + path + '\'');
 			return !obj || value === undefined ? null : value;
 		}, tree);
 	}
 };
 
 var pathAsArray = function pathAsArray(path) {
-	return path.constructor === Array ? path : path.split('.');
+	return path.constructor === String ? path.split('.') : path;
 };
 module.exports = exports['default'];
