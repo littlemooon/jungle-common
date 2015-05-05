@@ -17,8 +17,8 @@ export default {
 			const value = obj && (getFn ? getFn(obj, key) : obj[key]);
 
 			// throw error or return null if not found
-			if (errorType) throwError(`Cannot find ${errorType}: '${path}'`);
-			return !obj || value === undefined ? null : value;
+			const found = obj && value !== undefined;
+			return found ? value : errorType ? throwError(`Cannot find ${errorType}: '${path}'`) : null;
 		}, tree);
 	}
 };

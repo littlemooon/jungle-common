@@ -27,8 +27,8 @@ exports['default'] = {
 			var value = obj && (getFn ? getFn(obj, key) : obj[key]);
 
 			// throw error or return null if not found
-			if (errorType) _mapObj$throwError.throwError('Cannot find ' + errorType + ': \'' + path + '\'');
-			return !obj || value === undefined ? null : value;
+			var found = obj && value !== undefined;
+			return found ? value : errorType ? _mapObj$throwError.throwError('Cannot find ' + errorType + ': \'' + path + '\'') : null;
 		}, tree);
 	}
 };

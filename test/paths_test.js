@@ -11,6 +11,9 @@ describe('navigatePath function', () => {
 		it('should return the value for an array path', () => {
 			navigatePath(['qwe', 'asd'], {qwe: {asd: 123}}).should.eql(123);
 		});
+		it('should return the value with an error type specified', () => {
+			navigatePath('qwe.asd', {qwe: {asd: 123}}, false, 'Test').should.eql(123);
+		});
 	});
 
 	describe('with no matching path', () => {
