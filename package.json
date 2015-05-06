@@ -1,7 +1,7 @@
 {
-  "name": "the-jungle-common",
-  "version": "0.1.5",
-  "description": "Shared helpers for The Jungle",
+  "name": "jungle-common",
+  "version": "0.1.0",
+  "description": "Shared helpers for the Jungle toolkit",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel -w -d dist ./src",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/littlemooon/the-jungle-common.git"
+    "url": "https://github.com/littlemooon/jungle-common.git"
   },
   "keywords": [
     "react",
