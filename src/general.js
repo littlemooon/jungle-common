@@ -10,5 +10,14 @@ export default {
 
 	callIfFunction: (obj, ...args) => typeof obj === 'function' ? obj(...args) : obj,
 
-	throwError: function(err){ throw new Error(err); }
+	throwError: function(err) { throw new Error(err); },
+
+	debounce: (func) => {
+		let timeout;
+		const clearTimeout = () => timeout = null;
+		return () => {
+			timeout ? cancelAnimationFrame(timeout) : func.apply(this, arguments);
+			timeout = requestAnimationFrame ? requestAnimationFrame(clearTimeout) : setTimeout(clearTimeout, 16);
+		};
+	}
 };

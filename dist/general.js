@@ -1,5 +1,6 @@
 'use strict';
 
+var _arguments = arguments;
 Object.defineProperty(exports, '__esModule', {
 	value: true
 });
@@ -23,6 +24,17 @@ exports['default'] = {
 
 	throwError: function throwError(err) {
 		throw new Error(err);
+	},
+
+	debounce: function debounce(func) {
+		var timeout = undefined;
+		var clearTimeout = function clearTimeout() {
+			return timeout = null;
+		};
+		return function () {
+			timeout ? cancelAnimationFrame(timeout) : func.apply(undefined, _arguments);
+			timeout = requestAnimationFrame ? requestAnimationFrame(clearTimeout) : setTimeout(clearTimeout, 16);
+		};
 	}
 };
 module.exports = exports['default'];
