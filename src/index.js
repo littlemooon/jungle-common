@@ -1,6 +1,6 @@
 'use strict';
 
-import {mapObj, callIfFunction, throwError} from './general';
+import {mapObj, callIfFunction, throwError, debounce} from './general';
 import {reducePaths, navigatePath} from './paths';
 import {getCursorFns} from './cursors';
 
@@ -10,5 +10,6 @@ export default {
 	throwError,
 	reducePaths,
 	navigatePath,
-	getCursorFns
+	getCursorFns,
+	debounce
 };
